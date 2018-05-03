@@ -21,7 +21,12 @@ urlpatterns = [
 
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^admin/', admin.site.urls),
+    url('sample/', views.sample, name='sample'   ),
+    url('forms/', views.forms, name='forms'   ),
     url('accounts/', include('django.contrib.auth.urls')),
-    url(r'^signup/$', views.signup, name='signup'),
+    url(r'^signup/$', views.signup, name='signup'),# see to app
+    url(r'^signup/(?P<id>[0-9]+)/$', views.user, name='user'),# see to app
+    url(r'^user/$', views.user, name='user'),# see to app
+    #url(r'^(?P<id>[0-9]+)/$', views.user, name='user'),
     #url('signup/', include('signup.urls'))
 ]
