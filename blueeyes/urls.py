@@ -17,7 +17,8 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic.base import TemplateView
 from signup import views
-from blueeyes.core import formviews
+from blueeyes.core.urls import formviews
+
 urlpatterns = [
 
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
@@ -28,7 +29,8 @@ urlpatterns = [
     url(r'^signup/$', views.signup, name='signup'),# see to app
     url(r'^signup/(?P<id>[0-9]+)/$', views.user, name='user'),# see to app
     url(r'^user/$', views.user, name='user'),# see to app
-    url(r'^listexpend/$', formviews.listexpend, name = 'listexpend')
+    url(r'^listexpend/$', formviews.listexpend, name ='listexpend'),
+    url(r'^listexpend/save/$', formviews.saveexpend, name ='saveexpend'),
     #url(r'^(?P<id>[0-9]+)/$', views.user, name='user'),
     #url('signup/', include('signup.urls'))
 ]

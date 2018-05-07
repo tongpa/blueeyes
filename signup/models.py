@@ -33,3 +33,21 @@ class ExpenditureType(models.Model):
     active = models.BooleanField(max_length=1, default=1,blank=False)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
+
+class OrderType(models.Model):
+    id_order_type = models.IntegerField(primary_key=True)
+    description = models.TextField(max_length=500, blank=True)
+    active = models.BooleanField(max_length=1, default=1, blank=False)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+
+class ListExpenditure(models.Model):
+    id_list_expenditure = models.IntegerField(primary_key=True)
+    detail = models.TextField(max_length=500, blank=True)
+    description = models.TextField(max_length=500, blank=True)
+    id_order_type = models.ForeignKey(OrderType, on_delete=models.CASCADE)
+    active = models.BooleanField(max_length=1, default=1, blank=False)
+    order_date = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)

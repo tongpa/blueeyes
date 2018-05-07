@@ -9,8 +9,18 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 # Create your views here.
 from django.views import generic
-
+from blueeyes.core.form.formexpend import PostForm
 
 def listexpend(request):
+    return render(request, 'formexpend.html')
+
+def saveexpend(request):
+
+    if request.method == "POST":
+        formData = PostForm(request.POST)
+        if formData.is_valid():
+            post = formData.save(commit=False)
+            print post.description
+            post.save()
     return render(request, 'formexpend.html')
 
