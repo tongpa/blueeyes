@@ -14,6 +14,7 @@ from blueeyes.core.form.formexpend import PostForm
 def listexpend(request):
     return render(request, 'formexpend.html')
 
+
 def saveexpend(request):
 
     if request.method == "POST":

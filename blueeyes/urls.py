@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """blueeyes URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -31,6 +32,7 @@ urlpatterns = [
     url(r'^user/$', views.user, name='user'),# see to app
     url(r'^listexpend/$', formviews.listexpend, name ='listexpend'),
     url(r'^listexpend/save/$', formviews.saveexpend, name ='saveexpend'),
+    url(r'^api/', include('dataapi.urls')),
     #url(r'^(?P<id>[0-9]+)/$', views.user, name='user'),
     #url('signup/', include('signup.urls'))
 ]
