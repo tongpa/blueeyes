@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^ordertype/(?P<page>[0-9]+)/$', views.ordertype, name='index'),  #กำหมดค่า path ข้างหลังเลยว่าเป็นตัวเลข แบบ /10
     url(r'^ordertypeparam/$', views.ordertypeparam, name='index'),  #ไม่สนในว่า path ข้างหลังจะเป็นอะไรใช้ทำหรับทำ paramiter แบบ ?page=1&limit=10
-
+    url(r'^order/(?P<page>[0-9]+)/$', views.listExpend, name='index'),  #กำหมดค่า path ข้างหลังเลยว่าเป็นตัวเลข แบบ /10
 ]

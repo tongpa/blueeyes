@@ -21,6 +21,8 @@
     <link rel="stylesheet" type="text/css" href="{% static '/vendor/morrisjs/morris.css' %}" />
     <!-- Custom Fonts -->
      <link rel="stylesheet" type="text/css" href="{% static '/vendor/font-awesome/css/font-awesome.min.css' %}" />
+
+    {% block scrpitheader %} {% endblock %}
 </head>
 <body>
   <main>
@@ -390,6 +392,9 @@
     <script src="{% static 'vendor/raphael/raphael.min.js' %}"></script>
     <script src="{% static 'vendor/morrisjs/morris.min.js' %}"></script>
     <script src="{% static 'data/morris-data.js' %}"></script>
+
+
+    {% block scrpitfooter %} {% endblock %}
 
     <!-- Custom Theme JavaScript -->
     <script src="{% static 'dist/js/sb-admin-2.js' %}"></script>

@@ -16,7 +16,7 @@ class Profile(models.Model):
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
     def __str__(self):
-        return r"<Profile : %s " %(self.birth_date )
+        return r"<Profile : %s >" %(self.birth_date )
 
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
@@ -37,7 +37,7 @@ class ExpenditureType(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return r"<ExpenditureType : %s " %(self.id_expenditure_type )
+        return r"<ExpenditureType : %s >" %(self.id_expenditure_type )
 
 class OrderType(models.Model):
     id_order_type = models.IntegerField(primary_key=True)
@@ -47,12 +47,13 @@ class OrderType(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return r"<OrderType : %s " %(self.id_order_type )
+        return r"<OrderType : %s >" %(self.id_order_type )
 
 class ListExpenditure(models.Model):
     id_list_expenditure = models.IntegerField(primary_key=True)
     detail = models.TextField(max_length=500, blank=True)
     description = models.TextField(max_length=500, blank=True)
+    number = models.FloatField(default=0, blank=True)
     id_order_type = models.ForeignKey(OrderType, on_delete=models.CASCADE)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     active = models.BooleanField(max_length=1, default=1, blank=False)
@@ -62,4 +63,4 @@ class ListExpenditure(models.Model):
 
 
     def __str__(self):
-        return r"<ListExpenditure : %s , %s" %(self.id_list_expenditure, self.detail)
+        return r"<ListExpenditure : %s , %s>" %(self.id_list_expenditure, self.detail)

@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^signup/(?P<id>[0-9]+)/$', views.user, name='user'),# see to app
     url(r'^user/$', views.user, name='user'),# see to app
     url(r'^listexpend/$', formviews.listexpend, name ='listexpend'),
+    url(r'^listexpend/edit/$', formviews.editexpend, name ='editexpend'),
     url(r'^listexpend/save/$', formviews.saveexpend, name ='saveexpend'),
     url(r'^api/', include('dataapi.urls')),
     #url(r'^(?P<id>[0-9]+)/$', views.user, name='user'),
